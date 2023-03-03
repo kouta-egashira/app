@@ -7,7 +7,7 @@
 
     <div class="home">
         <h3>home</h3>
-        {{$user->name}}さんがログイン中
+        {{$user->name}}さんがログイン中です！
     </div>
 
     <!-- 検索フォーム -->
