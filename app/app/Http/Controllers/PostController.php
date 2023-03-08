@@ -15,38 +15,7 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        // ユーザー一覧をページネートで取得
-        $users = User::paginate(20);
 
-        // 検索フォームで入力された値を取得する
-        $search = $request->input('serarch');
-
-        // クエリビルダ
-        $query = User::query();
-
-        // もし検索フォームにキーワードが入力されたなら
-        if ($search) {
-            // 全角スペースを半角に変換
-            $spaceConversion = mb_convert_kana($search, 's');
-
-            // 単語を半角スペースで区切り、配列にする
-            $wordArraySearched = preg_split('/[\s,]+/', $spaceConversion, -1, PREG_SPLIT_NO_EMPTY);
-
-            // 単語をループで回し、ユーザーネームと部分一致するものがあれば、$queryとして保持される
-            foreach ($wordArraySearched as $value) {
-                $query->where('name', 'like', '%', $value.'%');
-            }
-
-            // 上記で取得した$queryをページネートにし、変数$usersに代入
-            $users = $query->paginate(20);
-        }
-
-        // ビューにusersとsearchを変数として渡す
-        return view('Post.index')
-            ->with([
-                'users' => $users,
-                'search' => $search,
-            ]);
     }
 
     /**
@@ -72,7 +41,7 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'author' => 'required|max:255',
             'publication' => 'required|max:255',
-            'url' => 'required',
+            'price' => 'required|max:255',
             'image' => 'image|max:1024',
         ]);
 
@@ -81,7 +50,7 @@ class PostController extends Controller
         $post->title = $inputs['title'];  // $inputsでバリデーションを通った値を表示
         $post->author = $inputs['author'];    // $inputsでバリデーションを通った値を表示
         $post->publication = $inputs['publication'];    // $inputsでバリデーションを通った値を表示
-        $post->url = $inputs['url'];    // $inputsでバリデーションを通った値を表示
+        $post->price = $inputs['price'];    // $inputsでバリデーションを通った値を表示
         $post->user_id = auth()->user()->id; // ログインしているユーザ
 
         if(request('image'))
@@ -137,7 +106,7 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'author' => 'required|max:255',
             'publication' => 'required|max:255',
-            'url' => 'required',
+            'price' => 'required|max:255',
             'image' => 'image|max:1024',
         ]);
 
@@ -146,7 +115,7 @@ class PostController extends Controller
         $post->title = $inputs['title'];  // $inputsでバリデーションを通った値を表示
         $post->author = $inputs['author'];    // $inputsでバリデーションを通った値を表示
         $post->publication = $inputs['publication'];    // $inputsでバリデーションを通った値を表示
-        $post->url = $inputs['url'];    // $inputsでバリデーションを通った値を表示
+        $post->price = $inputs['price'];    // $inputsでバリデーションを通った値を表示
         $post->user_id = auth()->user()->id; // ログインしているユーザ
 
         if(request('image'))

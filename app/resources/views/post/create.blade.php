@@ -44,9 +44,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="url">URL</label>
+                        <label for="price">金額</label>
                         <!-- value部分記載することで、バリデーションエラーが起きた際に入力した文字が保持される -->
-                        <input type="text" name="url" class="form-control" id="url" value="{{old('url')}}" placeholder="URLを入力してください">
+                        <input type="text" name="price" class="form-control" id="price" value="{{old('price')}}" placeholder="金額を入力してください">
                     </div>
 
                     <div class="form-group">

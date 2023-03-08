@@ -29,25 +29,25 @@
                     <div class="form-group">
                         <label for="title">書籍名</label>
                         <!-- value部分記載することで、バリデーションエラーが起きた際に入力した文字が保持される -->
-                        <input type="text" name="title" class="form-control" id="title" value="{{old('title', $post->title)}}" placeholder="Enter Title">
+                        <input type="text" name="title" class="form-control" id="title" value="{{old('title', $post->title)}}" placeholder="書籍名を入力してください">
                     </div>
 
                     <div class="form-group">
                         <label for="author">著者名</label>
                         <!-- value部分記載することで、バリデーションエラーが起きた際に入力した文字が保持される -->
-                        <input type="text" name="author" class="form-control" id="author" value="{{old('author', $post->author)}}" placeholder="Enter Author">
+                        <input type="text" name="author" class="form-control" id="author" value="{{old('author', $post->author)}}" placeholder="著者名を入力してください">
                     </div>
 
                     <div class="form-group">
                         <label for="publication">出版社</label>
                         <!-- value部分記載することで、バリデーションエラーが起きた際に入力した文字が保持される -->
-                        <input type="text" name="publication" class="form-control" id="publication" value="{{old('publication', $post->publication)}}" placeholder="Enter Publication">
+                        <input type="text" name="publication" class="form-control" id="publication" value="{{old('publication', $post->publication)}}" placeholder="出版社を入力してください">
                     </div>
 
                     <div class="form-group">
-                        <label for="url">URL</label>
+                        <label for="price">金額</label>
                         <!-- value部分記載することで、バリデーションエラーが起きた際に入力した文字が保持される -->
-                        <input type="text" name="url" class="form-control" id="url" value="{{old('url', $post->title)}}" placeholder="Enter Url">
+                        <input type="integer" name="price" class="form-control" id="price" value="{{old('price', $post->price)}}" placeholder="金額を入力してください">
                     </div>
 
                     <div class="form-group">
